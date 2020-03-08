@@ -1,17 +1,18 @@
 {
-  "name": "web-server",
+  "name": "wather-web-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "web application made with NODEJS and EXPRESS for learning purposes",
   "main": "index.js",
   "scripts": {
-    "start": "node src/app.js"
+    "start": "node src/app.js",
+    "watch" : "nodemon src/app.js -e js,hbs,css"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
-    "hbs": "^4.0.1",
+    "hbs": "^4.3.0",
     "request": "^2.88.0"
   }
 }
