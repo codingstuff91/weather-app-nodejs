@@ -9,7 +9,7 @@ searchForm.addEventListener('submit',(e)=>{
 
     parag1.innerText = "Loading in progress"
 
-    fetch('http://localhost:3000/weather?address='+ city.value).then((response) => {
+    fetch('https://codingstuff-weather-app-nodejs.herokuapp.com/weather?address='+ city.value).then((response) => {
         response.json().then((data) => {
             if (data.error) {
                 console.log(data.error)
