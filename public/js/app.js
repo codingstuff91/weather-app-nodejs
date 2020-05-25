@@ -18,9 +18,6 @@ searchForm.addEventListener('submit',(e)=>{
             } else {
                 parag1.innerText = data.location
                 parag2.innerHTML = data.forecast
-
-                console.log(data.location)
-                console.log(data.forecast)
             }
         })
     })

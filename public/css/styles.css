@@ -25,18 +25,16 @@ footer {
 }
 
 header {
-    margin-top: 16px;
-    margin-bottom: 48px;
+    margin-top: 25px;
+    margin-bottom: 50px;
 }
 
 h1 {
     font-size: 64px;
-    margin-bottom: 16px;
+    margin-bottom: 30px;
 }
 
 header a {
-    color: #888888;
-    margin-right: 16px;
     text-decoration: none;
 }
 
@@ -64,4 +62,18 @@ button{
     padding : 8px;
     border-radius: 5px;
     cursor : pointer;
+}
+
+.menu-link{
+    padding: 20px;
+    font-size: 20px;
+    border : 2px solid black;
+    background-color: #cac4c4;
+    color: black;
+    border-radius: 10px;
+}
+
+.menu-link:hover{
+    background-color: #aaa6a6;
+    color: black;
 }
