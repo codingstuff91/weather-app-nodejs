@@ -19,8 +19,31 @@
             <button type="submit" value="Valider" id="submit">Rechercher</button>
         </form>
 
-        <p id="message_one"></p>
-        <p id="message_two"></p>
+        <h3>Météo en temps réel</h3>
+        <h4 id="cityName"></h4>
+
+        <div class="instantMeteo"></div>
+
+        <h3>Météo prévisionnelle sur 6 heures</h3>
+        <table>
+            <thead id="hourlyForecastTitles">
+
+            </thead>
+            <tbody id="hourlyForecastResults">
+
+            </tbody>
+        </table>
+
+        <h3>Météo prévisionnelle sur 4 jours</h3>
+        <table>
+            <thead id="dailyForecastTitles">
+
+            </thead>
+            <tbody id="dailyForecastResults">
+
+            </tbody>
+        </table>
+
     </div>
 
     {{>footer}}
