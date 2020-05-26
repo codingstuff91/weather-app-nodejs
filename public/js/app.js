@@ -17,7 +17,7 @@ searchForm.addEventListener('submit',(e)=>{
 
     cityName.innerText = "Loading in progress"
 
-    fetch('https://codingstuff-weather-app-nodejs.herokuapp.com/weather?address='+ city.value).then((response) => {
+    fetch('https://codingstuff-weather-app-nodejs.herokuapp.com/weather?address=' + city.value).then((response) => {
         response.json().then((data) => {
 
             if (data.error) {
@@ -26,17 +26,19 @@ searchForm.addEventListener('submit',(e)=>{
             } else {
                 cityName.innerText = data.location
 
-                const instantMeteoTime = new Date(data.forecast.currently.time).getHours()+ ":" + new Date(data.forecast.currently.time).getMinutes()
+                const instantMeteoTime = new Date(data.forecast.currently.time * 1000).getHours()+ ":" + new Date(data.forecast.currently.time).getMinutes()
                 instantMeteo.innerHTML = "<ul><li>Météo prise à " + instantMeteoTime + "</li><li>Climat actuel : " +data.forecast.currently.summary+"</li><li>Temperature : "+ data.forecast.currently.temperature + " °C</li></ul>"
 
                 // loop for hourly forecast informations
                 for (let i = 0; i < 6; i++) {
-                    var day = new Date(data.forecast.hourly.data[i].time).getDay()
-                    var month = new Date(data.forecast.hourly.data[i].time).getMonth()
+                    
+                    var dateTimestamps = new Date(data.forecast.hourly.data[i].time * 1000)
+                    var hours = ("0" + dateTimestamps.getHours()).slice(-2);
+                    var minutes = ("0" + dateTimestamps.getMinutes()).slice(-2);
 
                     // Create dynamic table headers
                     var th = document.createElement("th")
-                    var title = document.createTextNode(day+"/"+month)
+                    var title = document.createTextNode(hours+":"+minutes)
                     th.appendChild(title)
                     hourlyForecastTitles.appendChild(th)
 
@@ -49,12 +51,13 @@ searchForm.addEventListener('submit',(e)=>{
 
                 // loop for daily forecast informations
                 for (let j = 0; j < 4; j++) {
-                    var day = new Date(data.forecast.daily.data[j].time).getDay()
-                    var month = new Date(data.forecast.daily.data[j].time).getMonth()
+                    var fullDate = new Date(data.forecast.daily.data[j].time * 1000)
+                    var date = fullDate.getDate()
+                    var month = ("0" + (fullDate.getMonth() + 1)).slice(-2);
 
                     // Create dynamic table headers
                     var th = document.createElement("th")
-                    var title = document.createTextNode(day+"/"+month)
+                    var title = document.createTextNode(date+"/"+month)
                     th.appendChild(title)
                     dailyForecastTitles.appendChild(th)
 
