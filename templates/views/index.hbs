@@ -6,9 +6,10 @@
     <title>Weather</title>
     <link rel="icon" href="/img/weather.png">
     <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-white-100">
     <div class="main-content">
         {{>header}}
 
@@ -19,7 +20,7 @@
             <button type="submit" value="Valider" id="submit">Rechercher</button>
         </form>
 
-        <h3>Météo en temps réel</h3>
+        <h3 class="text-blue-400">Météo en temps réel</h3>
         <h4 id="cityName"></h4>
 
         <div class="instantMeteo"></div>
