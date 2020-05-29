@@ -31,11 +31,13 @@
                 </form>
             </div>
             
-            <h3 class="mt-5 mx-5 sm:text-lg md:text-3xl font-sans hidden">Météo en temps réel</h3>
-            <h4 id="cityName"></h4>
+            <h3 class="mt-5 mx-5 sm:text-lg md:text-3xl font-sans hidden" id="instantForecastLabel">Météo en temps réel</h3>
+            <h4 class="mx-5 mt-4" id="cityName"></h4>
 
-            <h3 class="mt-5 mx-5 sm:text-lg md:text-3xl font-sans hidden">Météo prévisionnelle sur 6 heures</h3>
-            <table>
+            <div class="mx-5 hidden" id="instantMeteo"></div>
+
+            <h3 class="mt-5 mx-5 sm:text-lg md:text-3xl font-sans hidden" id="hourlyForecastLabel">Météo prévisionnelle sur 6 heures</h3>
+            <table class="table-auto mb-8 mx-4" id="hourlyForecastTable">
                 <thead id="hourlyForecastTitles">
 
                 </thead>
@@ -44,8 +46,8 @@
                 </tbody>
             </table>
 
-            <h3 class="mt-5 mx-5 sm:text-lg md:text-3xl font-sans hidden">Météo prévisionnelle sur 4 jours</h3>
-            <table>
+            <h3 class="mt-5 mx-5 sm:text-lg md:text-3xl font-sans hidden" id="dailyForecastLabel">Météo prévisionnelle sur 4 jours</h3>
+            <table class="table-auto mb-8 mx-4" id="dailyForecastTable">
                 <thead id="dailyForecastTitles">
 
                 </thead>
