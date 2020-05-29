@@ -6,19 +6,27 @@
     <title>About</title>
     <link rel="icon" href="/img/weather.png">
     <link rel="stylesheet" href="/css/styles.css">
+    {{!-- TAILWIND CSS --}}
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    {{!-- Font AWESOME --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 </head>
 
 <body>
-    <div class="main-content">
+    <div class="bg-blue-100 h-screen">
         {{>header}}
-        <h1>{{title}}</h1>
-        <p>This site was made by CodingStuff for learning NODE JS and EXPRESS technologies</p>
-        <p class="logo_technologies">
-            <img src="/img/nodejs.png" alt="logo_node_js">
-            <img src="/img/expressJs.png" alt="">
+        <h1 class="text-sm mt-4 mx-5 md:text-3xl font-sans">{{title}}</h1>
+        <p class="mt-4 mx-5 md:text-xl font-sans">This site was made by CodingStuff for :</p>
+        <ul class="mx-5 list-disc">
+            <li class="mx-5 sm:text-sm md:text-xl font-sans">Learning NodeJS and Express framework for backend</li>
+            <li class="mx-5 sm:text-sm md:text-xl font-sans">Learning how to use API such Geocode and Forecast</li>
+            <li class="mx-5 sm:text-sm md:text-xl font-sans">Learning the tailwindcss framework for frontend design</li>
+        </ul>
+        <p class="mt-4 mx-5 flex justify-start">
+            <img class="h-16 md:h-24 mx-5" src="/img/nodejs.png" alt="logo_node_js">
+            <img class="h-16 md:h-24 mx-5" src="/img/expressJs.png" alt="logo_expressJs">
+            <img class="h-16 md:h-24 mx-5" src="/img/tailwindcss.png" alt="logo tailwindcss">
         </p>
-        <p>For more informations contact CODINGSTUFF : codingstuff91@gmail.com</p>
     </div>
     
     {{>footer}}
