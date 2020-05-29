@@ -14,7 +14,7 @@
 
 
 <body class="bg-white-100">
-    <div class="bg-blue-100 h-auto">
+    <div class="bg-blue-100 h-screen">
         {{>header}}
         <div class="flex flex-col justify-center">
             <div class="row">
@@ -31,13 +31,13 @@
                 </form>
             </div>
             
-            <h3 class="mt-5 mx-5 sm:text-lg md:text-3xl font-sans">Météo en temps réel</h3>
+            <h3 class="mt-5 mx-5 sm:text-lg md:text-3xl font-sans hidden" id="instantForecastLabel">Météo en temps réel</h3>
             <h4 class="mx-5 mt-4" id="cityName"></h4>
 
-            <div class="instantMeteo mx-5 hidden" id="instantForecastLabel"></div>
+            <div class="mx-5 hidden" id="instantMeteo"></div>
 
             <h3 class="mt-5 mx-5 sm:text-lg md:text-3xl font-sans hidden" id="hourlyForecastLabel">Météo prévisionnelle sur 6 heures</h3>
-            <table class="table-auto mb-8 mx-4 hidden" id="hourlyForecastTable">
+            <table class="table-auto mb-8 mx-4" id="hourlyForecastTable">
                 <thead id="hourlyForecastTitles">
 
                 </thead>
@@ -47,7 +47,7 @@
             </table>
 
             <h3 class="mt-5 mx-5 sm:text-lg md:text-3xl font-sans hidden" id="dailyForecastLabel">Météo prévisionnelle sur 4 jours</h3>
-            <table class="table-auto mb-8 mx-4 hidden" id="dailyForecastTable">
+            <table class="table-auto mb-8 mx-4" id="dailyForecastTable">
                 <thead id="dailyForecastTitles">
 
                 </thead>

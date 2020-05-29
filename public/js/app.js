@@ -2,7 +2,7 @@ const city = document.querySelector('input')
 const searchForm = document.querySelector('form')
 const cityName = document.querySelector('#cityName')
 const resultsInstantForecast = document.querySelector('#resultsInstantForecast')
-const instantMeteo = document.querySelector('.instantMeteo')
+const instantMeteo = document.querySelector('#instantMeteo')
 
 const instantForecastLabel= document.querySelector("#instantForecastLabel")
 
@@ -30,16 +30,18 @@ searchForm.addEventListener('submit',(e)=>{
             } else {
                 cityName.innerText = data.location
 
+                //display instant weather informations
                 const instantMeteoTime = new Date(data.forecast.currently.time * 1000).getHours()+ ":" + new Date(data.forecast.currently.time).getMinutes()
                 instantMeteo.innerHTML = "<ul class='list-disc mx-5 mt-4'><li>Météo prise à " + instantMeteoTime + "</li><li>Climat actuel : " +data.forecast.currently.summary+"</li><li>Temperature : "+ data.forecast.currently.temperature + " °C</li></ul>"
 
-                // Show the tables of results
+                // Show the results
                 instantForecastLabel.classList.remove("hidden")
                 hourlyForecastLabel.classList.remove("hidden")
                 dailyForecastLabel.classList.remove("hidden")
+                instantMeteo.classList.remove("hidden")
 
                 // loop for hourly forecast informations
-                for (let i = 0; i < 6; i++) {
+                for (let i = 1; i < 7; i++) {
                     
                     var dateTimestamps = new Date(data.forecast.hourly.data[i].time * 1000)
                     var hours = ("0" + dateTimestamps.getHours()).slice(-2);
@@ -58,7 +60,7 @@ searchForm.addEventListener('submit',(e)=>{
                     var td = document.createElement("td")
                     td.classList.add("text-center")
                     td.classList.add("border-2")
-                    var cell = document.createTextNode(data.forecast.hourly.data[i].summary)
+                    var cell = document.createTextNode("Climat : " + data.forecast.hourly.data[i].summary +" Temp :" + data.forecast.hourly.data[i].temperature + "°C")
                     td.appendChild(cell)
                     hourlyForecastResults.appendChild(td)
                 }
@@ -82,7 +84,7 @@ searchForm.addEventListener('submit',(e)=>{
                     var td = document.createElement("td")
                     td.classList.add("text-center")
                     td.classList.add("border-2")
-                    var cell = document.createTextNode(data.forecast.daily.data[j].summary)
+                    var cell = document.createTextNode("Climat : " + data.forecast.daily.data[j].summary + " Temp max : " + data.forecast.daily.data[j].temperatureHigh + "°C")
                     td.appendChild(cell)
                     dailyForecastResults.appendChild(td)
                 }
