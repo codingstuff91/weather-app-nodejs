@@ -6,44 +6,54 @@
     <title>Weather</title>
     <link rel="icon" href="/img/weather.png">
     <link rel="stylesheet" href="/css/styles.css">
+    {{!-- TAILWIND CSS --}}
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    {{!-- Font AWESOME --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 </head>
 
-<body>
-    <div class="main-content">
+
+<body class="bg-white-100">
+    <div class="bg-blue-100 h-screen">
         {{>header}}
+        <div class="flex flex-col justify-center">
+            <div class="row">
+                <h2 class="mt-5 mx-5 sm:text-lg md:text-3xl font-sans">Get the weather informations of a city</h2>
+            </div>
+            <div class="row">
+                <form class="mx-5 mt-5">
+                    <input class="px-2 py-2 rounded-lg" type="text" id="location" placeholder="Type a city name">
+                    <button
+                        class="bg-green-500 hover:bg-green-400 px-4 py-2 rounded-lg" 
+                        type="submit" value="Valider" id="submit">
+                        Search
+                    </button>
+                </form>
+            </div>
+            
+            <h3 class="mt-5 mx-5 sm:text-lg md:text-3xl font-sans hidden">Météo en temps réel</h3>
+            <h4 id="cityName"></h4>
 
-        <h2>Chercher les informations Météo d'une ville</h2>
-        
-        <form>
-            <input type="text" id="location" placeholder="Choisir une ville">
-            <button type="submit" value="Valider" id="submit">Rechercher</button>
-        </form>
+            <h3 class="mt-5 mx-5 sm:text-lg md:text-3xl font-sans hidden">Météo prévisionnelle sur 6 heures</h3>
+            <table>
+                <thead id="hourlyForecastTitles">
 
-        <h3>Météo en temps réel</h3>
-        <h4 id="cityName"></h4>
+                </thead>
+                <tbody id="hourlyForecastResults">
 
-        <div class="instantMeteo"></div>
+                </tbody>
+            </table>
 
-        <h3>Météo prévisionnelle sur 6 heures</h3>
-        <table>
-            <thead id="hourlyForecastTitles">
+            <h3 class="mt-5 mx-5 sm:text-lg md:text-3xl font-sans hidden">Météo prévisionnelle sur 4 jours</h3>
+            <table>
+                <thead id="dailyForecastTitles">
 
-            </thead>
-            <tbody id="hourlyForecastResults">
+                </thead>
+                <tbody id="dailyForecastResults">
 
-            </tbody>
-        </table>
-
-        <h3>Météo prévisionnelle sur 4 jours</h3>
-        <table>
-            <thead id="dailyForecastTitles">
-
-            </thead>
-            <tbody id="dailyForecastResults">
-
-            </tbody>
-        </table>
-
+                </tbody>
+            </table>
+        </div>
     </div>
 
     {{>footer}}
