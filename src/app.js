@@ -22,14 +22,14 @@ app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'Weather Platform',
+        title: 'Direct Météo',
         name: 'CodingStuff'
     })
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
-        title: 'About This platform',
+        title: 'A propos',
         name: 'CodingStuff'
     })
 })
@@ -37,7 +37,7 @@ app.get('/about', (req, res) => {
 app.get('/weather', (req, res) => {
     if (!req.query.address) {
         return res.send({
-            error: 'You must provide an address!'
+            error: 'Vous devez préciser le nom d\'une ville !'
         })
     }
 
@@ -64,7 +64,7 @@ app.get('*', (req, res) => {
     res.render('404', {
         title: '404',
         name: 'CodingStuff',
-        errorMessage: 'Page not found.'
+        errorMessage: 'Page non trouvée.'
     })
 })
 
